@@ -144,7 +144,7 @@ case $AASIGDP_TARGET in
     failed_prereqs=
 
     cd "$inner_zip_dir"
-    builddir="$inner_zip_dir/mydroid" # Will be created by walkthrough
+    builddir="$(readlink -f "$inner_zip_dir/mydroid")" # (Dir created by walkthrough.sh)
 
     # RENESAS' buildenv script fails silently if mydroid already exists
     # (for example if we run the build twice) Let's fix that.
